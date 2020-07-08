@@ -1,0 +1,6 @@
+include ':latte_ec'
+include ':latte_core'
+include ':latte_compiler'
+include ':latte_annotation'
+include ':example'
+rootProject.name = "FastEC"
