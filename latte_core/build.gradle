@@ -1,11 +1,15 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+//butterknife插件作用生成R2类
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
+    lintOptions{
+        disable 'RestrictedApi'
+    }
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -20,6 +24,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -28,6 +37,19 @@ dependencies {
     implementation project(path: ':latte_annotation')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    // Swipeback is based on fragmentation. Refer to SwipeBackActivity/Fragment for your Customized SupportActivity/Fragment
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+    //fragmentation依赖
+    implementation 'me.yokeyword:fragmentationx:1.0.2'
+    implementation 'me.yokeyword:fragmentationx-swipeback:1.0.2'
+    //butterknife依赖
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    //网络请求依赖
+    implementation 'com.squareup.okio:okio:2.6.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.7.1'
+    //AVLoadingView依赖
+    implementation 'com.wang.avi:library:2.1.3'
 }
