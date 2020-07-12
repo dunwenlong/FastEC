@@ -40,5 +40,20 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //butterknife依赖
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    //网络请求依赖
+    implementation 'com.squareup.okio:okio:2.6.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.7.1'
+    //AVLoadingView依赖
+    implementation 'com.wang.avi:library:2.1.3'
+    //RXjava依赖
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: '2.9.0'
+    implementation "com.facebook.stetho:stetho:1.4.2"
 
 }

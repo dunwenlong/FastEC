@@ -10,16 +10,23 @@ import java.util.WeakHashMap;
  */
 public class Latte {
     public static Configurator init(Context context){
-        getConfigurations().put(ConfigType.APPLICATION_CONTEXT.name(), context.getApplicationContext());
+        getConfigurations().put(Configkeys.APPLICATION_CONTEXT, context.getApplicationContext());
         return Configurator.getInstance();
     }
 
-    public static WeakHashMap<String, Object> getConfigurations(){
+    public static Configurator getConfigurator(){
+        return Configurator.getInstance();
+    }
+    public static WeakHashMap<Object, Object> getConfigurations(){
         return Configurator.getInstance().getLatteConfigs();
     }
 
     public static Context getApplicationContext(){
 //        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
-        return (Context) Configurator.getInstance().getConfiguration(ConfigType.APPLICATION_CONTEXT);
+        return (Context) Configurator.getInstance().getConfiguration(Configkeys.APPLICATION_CONTEXT);
+    }
+
+    public static <T> T getConfiguration(Object key) {
+        return getConfigurator().getConfiguration(key);
     }
 }

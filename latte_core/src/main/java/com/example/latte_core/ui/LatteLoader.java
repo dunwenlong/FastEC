@@ -27,12 +27,12 @@ public class LatteLoader {
     private static final String DEFAULT_LOADER = LoaderStyle.BallClipRotatePulseIndicator.name();
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static void showLoading(Context context, Enum<LoaderStyle> type){
+    public static void showLoading(Context context, Enum<LoaderStyle> type) {
         showLoading(context, type.name());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static void showLoading(Context context, String type){
+    public static void showLoading(Context context, String type) {
         final AppCompatDialog dialog = new AppCompatDialog(context, R.style.dialog);
         final AVLoadingIndicatorView avLoadingIndicatorView;
         try {
@@ -41,12 +41,8 @@ public class LatteLoader {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         int deviceWidth = DimenUtil.getScreenWidth();
         int deviceHeight = DimenUtil.getScreenWidth();
-
-//        int deviceWidth = 20;
-//        int deviceHeight = 40;
         final Window dialogWindow = dialog.getWindow();
 
         if (dialogWindow != null) {

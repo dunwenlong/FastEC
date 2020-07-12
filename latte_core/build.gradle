@@ -35,7 +35,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation project(path: ':latte_annotation')
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     // Swipeback is based on fragmentation. Refer to SwipeBackActivity/Fragment for your Customized SupportActivity/Fragment
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -46,10 +46,20 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     //网络请求依赖
-    implementation 'com.squareup.okio:okio:2.6.0'
+    implementation 'com.squareup.okio:okio:2.7.0-alpha.lockfree.2'
     implementation 'com.squareup.okhttp3:okhttp:4.7.2'
-    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.7.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
     //AVLoadingView依赖
     implementation 'com.wang.avi:library:2.1.3'
+    //RXjava依赖
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: '2.9.0'
+    //json依赖
+    implementation 'com.alibaba:fastjson:1.2.71'
+    implementation 'com.bigkoo:convenientbanner:2.1.5'//地址变小写了，额。。。
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha04'
+    //Logger依赖
+    implementation 'com.orhanobut:logger:2.2.0'
 }

@@ -10,6 +10,7 @@ import com.example.latte_core.net.callback.IFailure;
 import com.example.latte_core.net.callback.IRequest;
 import com.example.latte_core.net.callback.ISuccess;
 import com.example.latte_core.net.callback.RequestCallbacks;
+import com.example.latte_core.net.download.DownloadHandler;
 import com.example.latte_core.ui.LatteLoader;
 import com.example.latte_core.ui.LoaderStyle;
 
@@ -29,7 +30,7 @@ import retrofit2.Callback;
  */
 public class RestClient {
     private final String URL;
-    private final WeakHashMap<String, Object> PARAMS = RestCreater.getParams();
+    private final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
     private final IRequest REQUEST;
     private final IError ERROR;
     private final ISuccess SUCCESS;
@@ -68,7 +69,7 @@ public class RestClient {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void request(HttpMethod method) {
-        final RestService service = RestCreater.getRestService();
+        final RestService service = RestCreator.getRestService();
         Call<String> call = null;
         if (REQUEST != null) {
             REQUEST.onRequestStart();
@@ -143,5 +144,10 @@ public class RestClient {
 
     public final void delete() {
         request(HttpMethod.DELETE);
+    }
+    public final void download() {
+        new DownloadHandler(URL, REQUEST, DOWNLOAD_DIR, EXTENSION, NAME,
+                SUCCESS, FAILURE, ERROR)
+                .handleDownload();
     }
 }

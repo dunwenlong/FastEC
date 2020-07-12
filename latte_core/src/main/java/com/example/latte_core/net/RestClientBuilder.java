@@ -21,7 +21,7 @@ import okhttp3.RequestBody;
  */
 public class RestClientBuilder {
     private String mUrl;
-    private static final Map<String, Object> PARAMS = RestCreater.getParams();
+    private static final Map<String, Object> PARAMS = RestCreator.getParams();
     private IRequest mIRequest;
     private IError mIError;
     private ISuccess mISuccess;
@@ -77,7 +77,7 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder loader(Context context, LoaderStyle style){
+    public final RestClientBuilder loader(Context context, LoaderStyle style) {
         this.mLoaderStyle = style;
         this.mContext = context;
         return this;
@@ -108,13 +108,15 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder loader(Context context){
+    public final RestClientBuilder loader(Context context) {
         this.mLoaderStyle = LoaderStyle.BallClipRotatePulseIndicator;
         this.mContext = context;
         return this;
     }
+
     public final RestClient build() {
         return new RestClient(mUrl, PARAMS, mIRequest, mIError, mISuccess, mIFailure, mBody,
                 mLoaderStyle, mContext, mFile, mDownloadDir, mExtension, mName);
     }
+
 }
